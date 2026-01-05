@@ -1758,8 +1758,6 @@ void loop()
             g_SettingEditing = !g_SettingEditing;
             DrawSetting(g_SettingSelected, true);
         }
-        else if (g_displayRDS)
-            g_rdsSwitchPressed = true;
         else if (isSSB() || g_Settings[SettingsIndex::ScanSwitch].param == 0)
         {
             if (!g_settingsActive)
@@ -1771,6 +1769,8 @@ void loop()
         //Seek in SSB/CW is not allowed
         else if (g_currentMode == FM || g_currentMode == AM)
             doSeek();
+        else if (g_displayRDS)
+            g_rdsSwitchPressed = true;
     }
 
     //This is a hack, it allows SHORTPRESS and LONGPRESS events
