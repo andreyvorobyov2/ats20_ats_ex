@@ -417,13 +417,11 @@ void showFrequency(bool cleanDisplay = false)
 void showFrequencySeek(uint16_t freq)
 {
     g_currentFrequency = freq;
-    delay(10);
     if (g_currentMode == FM)
     {
         //Fix random 10th KHz fraction
         freq = (freq / 10) * 10;
         g_currentFrequency = freq;
-        g_si4735.setFrequency(g_currentFrequency);
     }
     else
         g_currentFrequency = g_si4735.getFrequency();
